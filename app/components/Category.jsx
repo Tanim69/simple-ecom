@@ -1,5 +1,6 @@
 import React from 'react'
 import Products, { getData } from './Products'
+import Link from 'next/link'
 
 async function Category() {
   const allProducts= await getData()
@@ -10,7 +11,9 @@ async function Category() {
         <h1 className='font-bold text-[25px]'>All Categories:</h1>{
           allCategories.map((category)=>(
             <div>
+              <Link href={`/category/${category}`} >  
               <h1>{category}</h1>
+              </Link>
             </div>
           ))
         }

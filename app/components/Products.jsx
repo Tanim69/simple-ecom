@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 export async function getData() {
   const res = await fetch('https://dummyjson.com/products')
@@ -11,8 +12,6 @@ export async function getData() {
 
   return res.json()
 }
-
-
 
 export default async function Products() {
   const allProducts = await getData()
@@ -28,7 +27,9 @@ export default async function Products() {
         <Image src={product.thumbnail} width={150} height={150}/>
         </div>
         <h1>Title:{product.title}</h1>
+        <Link href="/category">
         <h1>Category:{product.category}</h1>
+        </Link>
         <h1>Price:{product.price}</h1>
       </div>
     ))
